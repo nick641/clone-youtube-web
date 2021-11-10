@@ -81,16 +81,29 @@ const Sidebar = () => {
 export default Sidebar;
 
 const Container = styled.div`
-  width: 20vw;
+  width: 250px;
   float:left;
   position: fixed;
   left: 0;
   height: 100%;
   text-align: left;
+  overflow-y: scroll;
 
   @media (max-width:800px) {
     display:none;
+  },
+
+  /*스크롤바*/
+  &::-webkit-scrollbar {
+    border: none;
+    -webkit-appearance: none;
   }
+  &::-webkit-scrollbar-thumb {
+    background: darkgrey;
+    border-radius: 8px;
+  }
+
+  
 `
 
 const MenuDiv = styled.div`
