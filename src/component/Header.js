@@ -31,7 +31,10 @@ const Input = styled.input`
   border: 1px solid lightgray;
   outline: none;
   padding: 0px 6px;
-  color: gray;
+
+  ::placeholder {
+    color: gray;
+  }
 `;
 
 const Header = () => {
@@ -43,7 +46,7 @@ const Header = () => {
       </Set>
 
       <Search>
-        <Input type="text" value="검색" />
+        <Input type="text" placeholder="검색" />
         <Button src="assets_header/Search.png" />
       </Search>
 
