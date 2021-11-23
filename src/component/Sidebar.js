@@ -40,12 +40,12 @@ const Sidebar = () => {
       </MenuDiv>
       <Line />
 
-      <div style={{paddingLeft:"20px"}}>구독</div>
+      <div style={{padding:"0 20px 10px"}}>구독</div>
       <MenuDiv>
       </MenuDiv>
       <Line />
 
-      <div style={{paddingLeft:"20px"}}>YOUTUBE 더보기</div>
+      <div style={{padding:"0 20px 10px"}}>YOUTUBE 더보기</div>
       <MenuDiv>
         <Icon src="icon/film.png"></Icon>
         <MenuSpan>YouTube Premium</MenuSpan>
