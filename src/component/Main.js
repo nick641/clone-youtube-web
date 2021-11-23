@@ -6,8 +6,6 @@ const Main = () => {
     <div>
       <Ad></Ad>
       <Video></Video>
-      <Video></Video>
-      <Video></Video>
     </div>
   );
 };
