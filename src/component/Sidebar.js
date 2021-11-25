@@ -82,7 +82,7 @@ export default Sidebar;
 
 const Container = styled.div`
   width: 250px;
-  float:left;
+  float: left;
   position: fixed;
   left: 0;
   height: 100%;
@@ -119,7 +119,7 @@ const MenuDiv = styled.div`
 `
 
 const Icon = styled.img`
-  margin-right: 24px;
+  margin-right: 20px;
   height: 25px;
   align-items: center;
   display: flex;
