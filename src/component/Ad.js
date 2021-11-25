@@ -8,14 +8,16 @@ const Wrapper = styled.div`
   height: 241px;
   font-size: 14px;
   margin: 8px;
+  margin-left: 500px;
+
   text-align: left;
 
   &:hover {
     .TextArea {
-    }
-    background-color: rgb(0, 0, 0, 0.5);
-    .text {
-      color: rgb(255, 255, 255, 100);
+      background-color: rgb(0, 0, 0, 0.5);
+      .text {
+        color: rgb(255, 255, 255, 100);
+      }
     }
   }
 `;
