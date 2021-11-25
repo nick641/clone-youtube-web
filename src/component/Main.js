@@ -3,7 +3,7 @@ import Video from "./Video";
 
 const Main = () => {
   return (
-    <div>
+    <div style={{display:'flex'}}>
       <Ad></Ad>
       <Video></Video>
     </div>
