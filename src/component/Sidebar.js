@@ -40,12 +40,11 @@ const Sidebar = () => {
       </MenuDiv>
       <Line />
 
-      <div style={{padding:"0 20px 10px"}}>구독</div>
-      <MenuDiv>
-      </MenuDiv>
+      <div style={{ padding: "0 20px 10px" }}>구독</div>
+      <MenuDiv></MenuDiv>
       <Line />
 
-      <div style={{padding:"0 20px 10px"}}>YOUTUBE 더보기</div>
+      <div style={{ padding: "0 20px 10px" }}>YOUTUBE 더보기</div>
       <MenuDiv>
         <Icon src="icon/film.png"></Icon>
         <MenuSpan>YouTube Premium</MenuSpan>
@@ -72,8 +71,7 @@ const Sidebar = () => {
       </MenuDiv>
       <Line />
 
-      <MenuDiv>
-      </MenuDiv>
+      <MenuDiv></MenuDiv>
     </Container>
   );
 };
@@ -82,16 +80,18 @@ export default Sidebar;
 
 const Container = styled.div`
   width: 250px;
-  float:left;
+  float: left;
   position: fixed;
   left: 0;
   height: 100%;
   text-align: left;
   overflow-y: scroll;
 
-  @media (max-width:800px) {
-    display:none;
-  },
+  @media (max-width: 800px) {
+    display: none;
+  }
+
+  ,
 
   /*스크롤바*/
   &::-webkit-scrollbar {
@@ -102,9 +102,7 @@ const Container = styled.div`
     background: darkgrey;
     border-radius: 8px;
   }
-
-  
-`
+`;
 
 const MenuDiv = styled.div`
   padding: 0px 20px 0px 20px;
@@ -116,7 +114,7 @@ const MenuDiv = styled.div`
   :hover {
     background-color: #f3f3f3;
   }
-`
+`;
 
 const Icon = styled.img`
   margin-right: 24px;
@@ -124,15 +122,15 @@ const Icon = styled.img`
   align-items: center;
   display: flex;
   float: left;
-`
+`;
 
 const MenuSpan = styled.span`
   font-size: 14px;
-`
+`;
 
 const Line = styled.div`
   height: 1px;
   background: #dedede;
   margin-top: 14px;
   margin-bottom: 14px;
-`
+`;
