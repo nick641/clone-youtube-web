@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useState } from "react";
 
 const Wrapper = styled.div`
   display: block;
@@ -8,16 +9,9 @@ const Wrapper = styled.div`
   height: 241px;
   font-size: 14px;
   margin: 8px;
-  text-align: left;
+  margin-left: 500px;
 
-  &:hover {
-    .TextArea {
-    }
-    background-color: rgb(0, 0, 0, 0.5);
-    .text {
-      color: rgb(255, 255, 255, 100);
-    }
-  }
+  text-align: left;
 `;
 
 const ImageArea = styled.div`
@@ -34,8 +28,8 @@ const Barogagi = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgb(0, 0, 0, 0);
-  color: rgb(255, 255, 255, 0);
+  background-color: rgb(0, 0, 0, 0.5);
+  color: rgb(255, 255, 255, 100);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -89,14 +83,23 @@ const Tag = styled.div`
 const Channel = styled.div``;
 
 const Ad = () => {
+  const [isHovering, setIsHovering] = useState(0);
+
   return (
-    <Wrapper>
+    <Wrapper
+      onMouseOver={() => setIsHovering(1)}
+      onMouseOut={() => setIsHovering(0)}
+    >
       <ImageArea>
         <Thumbnail src="assets_header/thumbnail.png" />
         <Icon src="assets_header/clickIcon.png" />
-        <Barogagi>
-          <p className="text">자세히 알아보기</p>
-        </Barogagi>
+        {isHovering ? (
+          <Barogagi>
+            <p className="text">자세히 알아보기</p>
+          </Barogagi>
+        ) : (
+          ""
+        )}
       </ImageArea>
       <TextArea>
         <Title>브라우저에서 지금 플레이하세요</Title>
