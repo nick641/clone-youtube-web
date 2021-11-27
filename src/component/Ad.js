@@ -9,8 +9,6 @@ const Wrapper = styled.div`
   height: 241px;
   font-size: 14px;
   margin: 8px;
-  margin-left: 500px;
-
   text-align: left;
 `;
 
