@@ -4,7 +4,7 @@ import Layout from "../Layout";
 
 const Subscribe = () => {
   return (
-    <Layout>
+    <Layout active="subscribe">
       <div>Finder</div>
     </Layout>
   );

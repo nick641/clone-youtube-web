@@ -6,7 +6,7 @@ import Layout from "../Layout";
 
 const Main = () => {
   return (
-    <Layout>
+    <Layout active="home">
       <Contents>
         <Ad></Ad>
         <Video></Video>

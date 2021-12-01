@@ -4,7 +4,7 @@ import Layout from "../Layout";
 
 const Finder = () => {
   return (
-    <Layout>
+    <Layout active="finder">
       <div>Finder</div>
     </Layout>
   );

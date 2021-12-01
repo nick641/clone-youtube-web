@@ -13,12 +13,12 @@ const Contents = styled.div`
   }
 `;
 
-function Layout({ Content }) {
+function Layout({ Content, active }) {
   return (
     <Wrapper>
       <Header />
       <Contents>
-        <Sidebar></Sidebar>
+        <Sidebar active={active}></Sidebar>
         <div className="contents">{Content}</div>
       </Contents>
     </Wrapper>

@@ -2,26 +2,47 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const Sidebar = () => {
+const Sidebar = ({ active }) => {
   return (
     <Container>
       <Link to="/" className="link">
-        <MenuDiv>
-          <Icon src="icon/home.png"></Icon>
-          <MenuSpan>홈</MenuSpan>
-        </MenuDiv>
+        {active === "home" ? (
+          <MenuDiv style={{ backgroundColor: "#cacaca" }}>
+            <Icon src="icon/clicked-home.png"></Icon>
+            <MenuSpan>홈</MenuSpan>
+          </MenuDiv>
+        ) : (
+          <MenuDiv>
+            <Icon src="icon/home.png"></Icon>
+            <MenuSpan>홈</MenuSpan>
+          </MenuDiv>
+        )}
       </Link>
       <Link to="/Finder" className="link">
-        <MenuDiv>
-          <Icon src="icon/explore.png"></Icon>
-          <MenuSpan>탐색</MenuSpan>
-        </MenuDiv>
+        {active === "finder" ? (
+          <MenuDiv style={{ backgroundColor: "#cacaca" }}>
+            <Icon src="icon/clicked-explore.png"></Icon>
+            <MenuSpan>탐색</MenuSpan>
+          </MenuDiv>
+        ) : (
+          <MenuDiv>
+            <Icon src="icon/explore.png"></Icon>
+            <MenuSpan>탐색</MenuSpan>
+          </MenuDiv>
+        )}
       </Link>
       <Link to="/Subscribe" className="link">
-        <MenuDiv>
-          <Icon src="icon/subscribe.png"></Icon>
-          <MenuSpan>구독</MenuSpan>
-        </MenuDiv>
+        {active === "subscribe" ? (
+          <MenuDiv style={{ backgroundColor: "#cacaca" }}>
+            <Icon src="icon/clicked-subscribe.png"></Icon>
+            <MenuSpan>구독</MenuSpan>
+          </MenuDiv>
+        ) : (
+          <MenuDiv>
+            <Icon src="icon/subscribe.png"></Icon>
+            <MenuSpan>구독</MenuSpan>
+          </MenuDiv>
+        )}
       </Link>
       <Line />
 
