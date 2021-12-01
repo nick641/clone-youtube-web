@@ -15,7 +15,6 @@ const LargeVideo = () => {
           를 보고, 느꼈던 바를 공유합니다. 로블록스는 과연 새로운 시대를 가장...
         </div>
       </div>
-      <line />
     </Wrapper>
   );
 };

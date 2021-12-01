@@ -15,14 +15,17 @@ const LargeVideoWithChannel = () => {
 };
 
 const Wrapper = styled.div`
-  width: 1284px;
   height: 230px;
   flex-direction: row;
-  margin-bottom: 20px;
   border-bottom: solid 1px lightgray;
 
+  width: 70vw;
+
   @media (max-width: 1300px) {
-    width: 862px;
+    width: 80vw;
+  }
+  @media (max-width: 800px) {
+    width: 80vw;
   }
 `;
 

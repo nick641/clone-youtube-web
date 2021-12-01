@@ -7,6 +7,17 @@ const SubscribeContent = () => {
   return (
     <Wrapper>
       <LargeVideoWithChannel />
+      <LargeVideoWithChannel />
+      <LargeVideoWithChannel />
+      <LargeVideoWithChannel />
+      <LargeVideoWithChannel />
+      <LargeVideoWithChannel />
+      <LargeVideoWithChannel />
+      <LargeVideoWithChannel />
+      <LargeVideoWithChannel />
+      <LargeVideoWithChannel />
+      <LargeVideoWithChannel />
+      <LargeVideoWithChannel />
     </Wrapper>
   );
 };
@@ -17,6 +28,7 @@ const Subscribe = () => {
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  padding-top: 20px;
   gap: 20px;
   width: 70vw;
 
