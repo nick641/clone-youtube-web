@@ -45,7 +45,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 70vw;
+  width: 75vw;
 
   @media (max-width: 1300px) {
     width: 80vw;
@@ -64,7 +64,7 @@ const Videos = styled.div`
   display: grid;
   row-gap: 10px;
   column-gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+  grid-template-columns: repeat(auto-fit, minmax(285px, auto));
 `;
 
 export default Main;
