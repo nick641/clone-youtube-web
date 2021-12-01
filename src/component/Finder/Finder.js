@@ -40,6 +40,13 @@ const Wrapper = styled.div`
   flex-direction: column;
   gap: 20px;
   width: 70vw;
+
+  @media (max-width: 1300px) {
+    width: 80vw;
+  }
+  @media (max-width: 800px) {
+    width: 80vw;
+  }
 `;
 
 const Cards = styled.div`

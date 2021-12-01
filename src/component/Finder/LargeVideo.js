@@ -33,6 +33,10 @@ const Wrapper = styled.div`
     width: 850px;
   }
 
+  @media (max-width: 800px) {
+    width: 80vw;
+  }
+
   .text {
     flex-direction: column;
     margin-left: 20px;
