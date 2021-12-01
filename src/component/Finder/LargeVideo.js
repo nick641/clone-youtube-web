@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-function LargeVideo() {
+const LargeVideo = () => {
   return (
     <Video>
       <img className="thumb" src="thumbnail.jpg" />
@@ -17,7 +17,7 @@ function LargeVideo() {
       </div>
     </Video>
   );
-}
+};
 
 const Video = styled.div`
   display: flex;
