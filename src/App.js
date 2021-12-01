@@ -1,24 +1,17 @@
-import "./App.css";
-import Header from "./component/Header";
-import Sidebar from "./component/Sidebar";
-import Main from "./component/Main";
-import styled from "styled-components";
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-top: 70px;
-`;
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Finder from "./component/Finder/Finder";
+import Main from "./component/Main/Main";
+import Subscribe from "./component/Subscribe/Subscribe";
 
 function App() {
   return (
-    <div className="App">
-      <Header></Header>
-      <Wrapper>
-        <Sidebar></Sidebar>
-        <Main></Main>
-      </Wrapper>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" exact={true} element={<Main />} />
+        <Route path="/Finder" element={<Finder />} />
+        <Route path="/Subscribe" element={<Subscribe />} />
+      </Routes>
+    </Router>
   );
 }
 
