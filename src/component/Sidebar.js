@@ -1,21 +1,49 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const Sidebar = () => {
+const Sidebar = ({ active }) => {
   return (
     <Container>
-      <MenuDiv>
-        <Icon src="icon/home.png"></Icon>
-        <MenuSpan>홈</MenuSpan>
-      </MenuDiv>
-      <MenuDiv>
-        <Icon src="icon/explore.png"></Icon>
-        <MenuSpan>탐색</MenuSpan>
-      </MenuDiv>
-      <MenuDiv>
-        <Icon src="icon/subscribe.png"></Icon>
-        <MenuSpan>구독</MenuSpan>
-      </MenuDiv>
+      <Link to="/" className="link">
+        {active === "home" ? (
+          <MainMenuDiv style={{ backgroundColor: "#cacaca" }}>
+            <Icon src="icon/clicked-home.png"></Icon>
+            <MenuSpan>홈</MenuSpan>
+          </MainMenuDiv>
+        ) : (
+          <MainMenuDiv>
+            <Icon src="icon/home.png"></Icon>
+            <MenuSpan>홈</MenuSpan>
+          </MainMenuDiv>
+        )}
+      </Link>
+      <Link to="/Finder" className="link">
+        {active === "finder" ? (
+          <MainMenuDiv style={{ backgroundColor: "#cacaca" }}>
+            <Icon src="icon/clicked-explore.png"></Icon>
+            <MenuSpan>탐색</MenuSpan>
+          </MainMenuDiv>
+        ) : (
+          <MainMenuDiv>
+            <Icon src="icon/explore.png"></Icon>
+            <MenuSpan>탐색</MenuSpan>
+          </MainMenuDiv>
+        )}
+      </Link>
+      <Link to="/Subscribe" className="link">
+        {active === "subscribe" ? (
+          <MainMenuDiv style={{ backgroundColor: "#cacaca" }}>
+            <Icon src="icon/clicked-subscribe.png"></Icon>
+            <MenuSpan>구독</MenuSpan>
+          </MainMenuDiv>
+        ) : (
+          <MainMenuDiv>
+            <Icon src="icon/subscribe.png"></Icon>
+            <MenuSpan>구독</MenuSpan>
+          </MainMenuDiv>
+        )}
+      </Link>
       <Line />
 
       <MenuDiv>
@@ -40,11 +68,15 @@ const Sidebar = () => {
       </MenuDiv>
       <Line />
 
-      <div style={{ padding: "0 20px 10px" }}>구독</div>
+      <div className="title" style={{ padding: "0 20px 10px" }}>
+        구독
+      </div>
       <MenuDiv></MenuDiv>
       <Line />
 
-      <div style={{ padding: "0 20px 10px" }}>YOUTUBE 더보기</div>
+      <div className="title" style={{ padding: "0 20px 10px" }}>
+        YOUTUBE 더보기
+      </div>
       <MenuDiv>
         <Icon src="icon/film.png"></Icon>
         <MenuSpan>YouTube Premium</MenuSpan>
@@ -87,10 +119,22 @@ const Container = styled.div`
   text-align: left;
   overflow-y: scroll;
 
+  @media (max-width: 1300px) {
+    width: 90px;
+
+    .title {
+      display: none;
+    }
+  }
+
+  .link {
+    text-decoration: none;
+    color: black;
+  }
+
   @media (max-width: 800px) {
     display: none;
   }
-
   ,
 
   /*스크롤바*/
@@ -104,6 +148,26 @@ const Container = styled.div`
   }
 `;
 
+const MainMenuDiv = styled.div`
+  padding: 0px 20px 0px 20px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  :hover {
+    background-color: #f3f3f3;
+  }
+
+  @media (max-width: 1300px) {
+    height: 90px;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
 const MenuDiv = styled.div`
   padding: 0px 20px 0px 20px;
   height: 40px;
@@ -114,6 +178,10 @@ const MenuDiv = styled.div`
   :hover {
     background-color: #f3f3f3;
   }
+
+  @media (max-width: 1300px) {
+    display: none;
+  }
 `;
 
 const Icon = styled.img`
@@ -122,6 +190,10 @@ const Icon = styled.img`
   align-items: center;
   display: flex;
   float: left;
+
+  @media (max-width: 1300px) {
+    margin: 0;
+  }
 `;
 
 const MenuSpan = styled.span`
@@ -133,4 +205,8 @@ const Line = styled.div`
   background: #dedede;
   margin-top: 14px;
   margin-bottom: 14px;
+
+  @media (max-width: 1300px) {
+    display: none;
+  }
 `;
