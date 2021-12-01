@@ -39,6 +39,7 @@ const Wrapper = styled.div`
   justify-content: space-between;
   padding: 0px 20px;
   height: 70px;
+  z-index: 1;
 
   .icon {
     width: 24px;
