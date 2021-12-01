@@ -22,11 +22,14 @@ const LargeVideo = () => {
 const Video = styled.div`
   display: flex;
   flex-direction: row;
-  width: 840px;
 
   .thumb {
     width: 246px;
     height: 138px;
+  }
+
+  @media (min-width: 1300px) {
+    width: 850px;
   }
 
   .text {
@@ -34,19 +37,38 @@ const Video = styled.div`
     margin-left: 20px;
     color: gray;
 
+    @media (max-width: 500px) {
+      display: none;
+    }
+
     .title {
       color: black;
       font-size: 1.3rem;
       font-weight: 500;
       margin-bottom: 10px;
+      overflow: hidden;
+      display: -webkit-box;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 2; /* 표시하고자 하는 라인 수 */
+      -webkit-box-orient: vertical;
     }
 
     .about {
       margin-bottom: 10px;
+      overflow: hidden;
+      display: -webkit-box;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 2; /* 표시하고자 하는 라인 수 */
+      -webkit-box-orient: vertical;
     }
 
     .detail {
       margin-bottom: 10px;
+      overflow: hidden;
+      display: -webkit-box;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 2; /* 표시하고자 하는 라인 수 */
+      -webkit-box-orient: vertical;
     }
   }
 `;

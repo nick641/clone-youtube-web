@@ -6,7 +6,24 @@ import LargeVideo from "./LargeVideo";
 const FinderContent = () => {
   return (
     <Wrapper>
-      <Cards></Cards>
+      <Cards>
+        <Card src="card/popular.png" />
+        <Card src="card/music.png" />
+        <Card src="card/movie.png" />
+        <Card src="card/game.png" />
+        <Card src="card/sport.png" />
+        <Card src="card/learn.png" />
+      </Cards>
+      <LargeVideo />
+      <LargeVideo />
+      <LargeVideo />
+      <LargeVideo />
+      <LargeVideo />
+      <LargeVideo />
+      <LargeVideo />
+      <LargeVideo />
+      <LargeVideo />
+      <LargeVideo />
       <LargeVideo />
       <LargeVideo />
       <LargeVideo />
@@ -21,8 +38,13 @@ const Finder = () => {
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 20px;
   gap: 20px;
+  width: 70vw;
 `;
+
+const Cards = styled.div`
+  margin-bottom: 50px;
+`;
+const Card = styled.img``;
 
 export default Finder;

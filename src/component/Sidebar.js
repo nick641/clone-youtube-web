@@ -132,6 +132,9 @@ const Container = styled.div`
     color: black;
   }
 
+  @media (max-width: 800px) {
+    display: none;
+  }
   ,
 
   /*스크롤바*/
