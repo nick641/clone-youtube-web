@@ -16,11 +16,16 @@ const Subscribe = () => {
 
 const Wrapper = styled.div`
   display: flex;
-  flex: 1;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-left: 20px;
+  gap: 20px;
+  width: 70vw;
+
+  @media (max-width: 1300px) {
+    width: 80vw;
+  }
+  @media (max-width: 800px) {
+    width: 80vw;
+  }
 `;
 
 export default Subscribe;
