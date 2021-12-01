@@ -10,6 +10,7 @@ const Wrapper = styled.div`
   font-size: 14px;
   margin: 8px;
   text-align: left;
+  cursor: pointer;
 `;
 
 const ImageArea = styled.div`
