@@ -1,21 +1,28 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Sidebar = () => {
   return (
     <Container>
-      <MenuDiv>
-        <Icon src="icon/home.png"></Icon>
-        <MenuSpan>홈</MenuSpan>
-      </MenuDiv>
-      <MenuDiv>
-        <Icon src="icon/explore.png"></Icon>
-        <MenuSpan>탐색</MenuSpan>
-      </MenuDiv>
-      <MenuDiv>
-        <Icon src="icon/subscribe.png"></Icon>
-        <MenuSpan>구독</MenuSpan>
-      </MenuDiv>
+      <Link to="/">
+        <MenuDiv>
+          <Icon src="icon/home.png"></Icon>
+          <MenuSpan>홈</MenuSpan>
+        </MenuDiv>
+      </Link>
+      <Link to="/Finder">
+        <MenuDiv>
+          <Icon src="icon/explore.png"></Icon>
+          <MenuSpan>탐색</MenuSpan>
+        </MenuDiv>
+      </Link>
+      <Link to="/Subscribe">
+        <MenuDiv>
+          <Icon src="icon/subscribe.png"></Icon>
+          <MenuSpan>구독</MenuSpan>
+        </MenuDiv>
+      </Link>
       <Line />
 
       <MenuDiv>
