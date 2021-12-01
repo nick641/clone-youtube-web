@@ -5,19 +5,19 @@ import styled from "styled-components";
 const Sidebar = () => {
   return (
     <Container>
-      <Link to="/">
+      <Link to="/" className="link">
         <MenuDiv>
           <Icon src="icon/home.png"></Icon>
           <MenuSpan>홈</MenuSpan>
         </MenuDiv>
       </Link>
-      <Link to="/Finder">
+      <Link to="/Finder" className="link">
         <MenuDiv>
           <Icon src="icon/explore.png"></Icon>
           <MenuSpan>탐색</MenuSpan>
         </MenuDiv>
       </Link>
-      <Link to="/Subscribe">
+      <Link to="/Subscribe" className="link">
         <MenuDiv>
           <Icon src="icon/subscribe.png"></Icon>
           <MenuSpan>구독</MenuSpan>
@@ -96,6 +96,11 @@ const Container = styled.div`
 
   @media (max-width: 800px) {
     display: none;
+  }
+
+  .link {
+    text-decoration: none;
+    color: black;
   }
 
   ,
