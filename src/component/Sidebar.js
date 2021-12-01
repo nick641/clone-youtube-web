@@ -119,16 +119,12 @@ const Container = styled.div`
   text-align: left;
   overflow-y: scroll;
 
-  @media (max-width: 900px) {
+  @media (max-width: 1300px) {
     width: 90px;
 
     .title {
       display: none;
     }
-  }
-
-  @media (max-width: 800px) {
-    display: none;
   }
 
   .link {
@@ -160,7 +156,7 @@ const MainMenuDiv = styled.div`
     background-color: #f3f3f3;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 1300px) {
     height: 90px;
     flex-direction: column;
     gap: 10px;
@@ -180,7 +176,7 @@ const MenuDiv = styled.div`
     background-color: #f3f3f3;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 1300px) {
     display: none;
   }
 `;
@@ -192,7 +188,7 @@ const Icon = styled.img`
   display: flex;
   float: left;
 
-  @media (max-width: 900px) {
+  @media (max-width: 1300px) {
     margin: 0;
   }
 `;
@@ -207,7 +203,7 @@ const Line = styled.div`
   margin-top: 14px;
   margin-bottom: 14px;
 
-  @media (max-width: 900px) {
+  @media (max-width: 1300px) {
     display: none;
   }
 `;
