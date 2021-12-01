@@ -3,36 +3,52 @@ import styled from "styled-components";
 
 function LargeVideo() {
   return (
-    <Wrapper>
-      <Channel>
-        <img className="channel-icon" src=".jpg" />
-        <div className="channel-name">노마드 코더 Nomad Coders</div>
-      </Channel>
-      <Video>
-        <img className="thumb" src="Profile.jpg" />
-        <div className="text">
-          <div className="title">'로블룩스 개발자'가 필요한 시대가 온다?!</div>
-          <div className="about">
-            노마드 코더 Nomad Coders * 조회수 2.6만회 * 2일전
-          </div>
-          <div className="detail"></div>
+    <Video>
+      <img className="thumb" src="thumbnail.jpg" />
+      <div className="text">
+        <div className="title">'로블룩스 개발자'가 필요한 시대가 온다?!</div>
+        <div className="about">
+          노마드 코더 Nomad Coders * 조회수 2.6만회 * 2일전
         </div>
-      </Video>
-    </Wrapper>
+        <div className="detail">
+          지난 10월 열린 로블록스 개발자 컨퍼런스 그리고 로블록스 Investor Day
+          를 보고, 느꼈던 바를 공유합니다. 로블록스는 과연 새로운 시대를 가장...
+        </div>
+      </div>
+    </Video>
   );
 }
 
-const Wrapper = styled.div`
-  border-bottom: solid 1px gray;
-  width: 1284px;
-  height: 230px;
-  @media (max-width: 1300px) {
-    width: ;
+const Video = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 840px;
+
+  .thumb {
+    width: 246px;
+    height: 138px;
+  }
+
+  .text {
+    flex-direction: column;
+    margin-left: 20px;
+    color: gray;
+
+    .title {
+      color: black;
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .about {
+      margin-bottom: 10px;
+    }
+
+    .detail {
+      margin-bottom: 10px;
+    }
   }
 `;
-
-const Channel = styled.div``;
-
-const Video = styled.div``;
 
 export default LargeVideo;
