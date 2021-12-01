@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const LargeVideo = () => {
   return (
-    <Video>
+    <Wrapper>
       <img className="thumb" src="thumbnail.jpg" />
       <div className="text">
         <div className="title">'로블룩스 개발자'가 필요한 시대가 온다?!</div>
@@ -15,11 +15,12 @@ const LargeVideo = () => {
           를 보고, 느꼈던 바를 공유합니다. 로블록스는 과연 새로운 시대를 가장...
         </div>
       </div>
-    </Video>
+      <line />
+    </Wrapper>
   );
 };
 
-const Video = styled.div`
+const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
 
@@ -36,6 +37,7 @@ const Video = styled.div`
     flex-direction: column;
     margin-left: 20px;
     color: gray;
+    font-size: 0.9rem;
 
     @media (max-width: 500px) {
       display: none;
@@ -43,8 +45,8 @@ const Video = styled.div`
 
     .title {
       color: black;
-      font-size: 1.3rem;
-      font-weight: 500;
+      font-size: 1.1rem;
+      font-weight: 400;
       margin-bottom: 10px;
       overflow: hidden;
       display: -webkit-box;
