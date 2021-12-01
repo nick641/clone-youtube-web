@@ -1,5 +1,5 @@
-import Ad from "./Ad";
-import Video from "./Video";
+import Ad from "./Main/Ad";
+import Video from "./Main/Video";
 import React from "react";
 import styled from "styled-components";
 
@@ -26,4 +26,4 @@ const Contents = styled.div`
   @media (max-width:800px) {
     margin-left:0;
   },
-`
+`;
