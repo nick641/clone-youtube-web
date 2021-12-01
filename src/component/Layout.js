@@ -2,25 +2,30 @@ import Header from "./Header";
 import Sidebar from "./Sidebar";
 import styled from "styled-components";
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
 
-const Contents = styled.div`
+.contents {
   display: flex;
-  margin-top: 70px;
+  margin-left: 240px;
 
-  .contents {
-    flex: 1;
-  }
+  @media (max-width:1300px) {
+    margin-left:80px;
+  },
+}
 `;
 
-function Layout({ Content, active }) {
+const Body = styled.div`
+  margin-top: 76px;
+`;
+
+function Layout({ active, content }) {
   return (
     <Wrapper>
       <Header />
-      <Contents>
+      <Body>
         <Sidebar active={active}></Sidebar>
-        <div className="contents">{Content}</div>
-      </Contents>
+        <div className="contents">{content}</div>
+      </Body>
     </Wrapper>
   );
 }

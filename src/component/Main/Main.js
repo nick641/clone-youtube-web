@@ -4,29 +4,23 @@ import React from "react";
 import styled from "styled-components";
 import Layout from "../Layout";
 
-const Main = () => {
+const MainContent = () => {
   return (
-    <Layout active="home">
-      <Contents>
-        <Ad></Ad>
-        <Video></Video>
-        <Video></Video>
-        <Video></Video>
-        <Video></Video>
-        <Video></Video>
-      </Contents>
-    </Layout>
+    <Wrapper>
+      <Ad></Ad>
+      <Video></Video>
+      <Video></Video>
+      <Video></Video>
+      <Video></Video>
+      <Video></Video>
+    </Wrapper>
   );
 };
 
+const Main = () => {
+  return <Layout active="home" content={<MainContent />} />;
+};
+
+const Wrapper = styled.div``;
+
 export default Main;
-
-const Contents = styled.div`
-  display: flex;
-  margin-left: 240px;
-  flex-flow: wrap;
-
-  @media (max-width:800px) {
-    margin-left:0;
-  },
-`;

@@ -5,6 +5,29 @@ import { IoSearchOutline } from "react-icons/io5";
 import { BsGrid3X3Gap } from "react-icons/bs";
 import { HiOutlineDotsVertical } from "react-icons/hi";
 
+const Header = () => {
+  return (
+    <Wrapper>
+      <Set>
+        <FiMenu className="icon" />
+        <Button src="assets_header/Logo.png" />
+      </Set>
+
+      <Search>
+        <Input type="text" placeholder="검색" />
+        <IoSearchOutline className="search-button" />
+      </Search>
+
+      <Set>
+        <BsGrid3X3Gap className="icon" />
+        <HiOutlineDotsVertical className="icon" />
+        <Button src="assets_header/Value.png" />
+        <Button src="assets_header/pp.png" />
+      </Set>
+    </Wrapper>
+  );
+};
+
 const Wrapper = styled.div`
   display: flex;
   position: fixed;
@@ -59,28 +82,5 @@ const Input = styled.input`
     color: gray;
   }
 `;
-
-const Header = () => {
-  return (
-    <Wrapper>
-      <Set>
-        <FiMenu className="icon" />
-        <Button src="assets_header/Logo.png" />
-      </Set>
-
-      <Search>
-        <Input type="text" placeholder="검색" />
-        <IoSearchOutline className="search-button" />
-      </Search>
-
-      <Set>
-        <BsGrid3X3Gap className="icon" />
-        <HiOutlineDotsVertical className="icon" />
-        <Button src="assets_header/Value.png" />
-        <Button src="assets_header/pp.png" />
-      </Set>
-    </Wrapper>
-  );
-};
 
 export default Header;
