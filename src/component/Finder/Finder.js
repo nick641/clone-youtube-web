@@ -52,6 +52,15 @@ const Wrapper = styled.div`
 const Cards = styled.div`
   margin-bottom: 50px;
 `;
-const Card = styled.img``;
+const Card = styled.img`
+  width: 210px;
+  height: 116px;
+  border-radius: 10px;
+
+  :hover {
+    filter: brightness(80%);
+    cursor: pointer;
+  }
+`;
 
 export default Finder;
