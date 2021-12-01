@@ -3,9 +3,9 @@ import styled from "styled-components";
 import { useState } from "react";
 
 const Wrapper = styled.div`
-  display: block;
+  display: inline-block;
   flex-direction: column;
-  width: 276px;
+  width: 280px;
   height: 241px;
   font-size: 14px;
   margin: 8px;
@@ -16,7 +16,7 @@ const Wrapper = styled.div`
 const ImageArea = styled.div`
   display: flex;
   position: relative;
-  width: 276px;
+  width: 100%;
   height: 153px;
   margin-bottom: 10px;
 `;
@@ -35,6 +35,7 @@ const Barogagi = styled.div`
 `;
 
 const Thumbnail = styled.img`
+  display: inline-block;
   margin-bottom: 10px;
   width: 100%;
   height: 100%;
