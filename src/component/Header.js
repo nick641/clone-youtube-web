@@ -32,7 +32,7 @@ const Wrapper = styled.div`
   display: flex;
   position: fixed;
   top: 0;
-  width: 100%;
+  width: 97%;
   background-color: white;
   flex-direction: row;
   align-items: center;
@@ -40,6 +40,10 @@ const Wrapper = styled.div`
   padding: 0px 20px;
   height: 70px;
   z-index: 1;
+
+  @media (max-width: 800px) {
+    justify-content: space-around;
+  }
 
   .icon {
     width: 24px;
@@ -69,6 +73,10 @@ const Search = styled.div`
     border: 1px solid #d3d3d3;
     background-color: #f8f8f8;
     cursor: pointer;
+  }
+
+  @media (max-width: 800px) {
+    display: none;
   }
 `;
 

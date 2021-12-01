@@ -76,9 +76,6 @@ const Wrapper = styled.div`
   @media (max-width: 1300px) {
     width: 80vw;
   }
-  @media (max-width: 800px) {
-    width: 80vw;
-  }
 `;
 
 const Filters = styled.div`
