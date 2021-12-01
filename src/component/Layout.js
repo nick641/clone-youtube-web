@@ -2,21 +2,26 @@ import Header from "./Header";
 import Sidebar from "./Sidebar";
 import styled from "styled-components";
 
-const Wrapper = styled.div`
+const Wrapper = styled.div``;
+
+const Contents = styled.div`
   display: flex;
-  flex-direction: column;
   margin-top: 70px;
+
+  .contents {
+    flex: 1;
+  }
 `;
 
-function Layout({ Contents }) {
+function Layout({ Content }) {
   return (
-    <div className="App">
-      <Header></Header>
-      <Wrapper>
+    <Wrapper>
+      <Header />
+      <Contents>
         <Sidebar></Sidebar>
-        {Contents}
-      </Wrapper>
-    </div>
+        <div className="contents">{Content}</div>
+      </Contents>
+    </Wrapper>
   );
 }
 
