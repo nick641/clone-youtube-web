@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Loading from "./Loading";
 
 const Wrapper = styled.div`
   display: inline-block;
@@ -105,20 +106,21 @@ const Ad = () => {
   }, []);
 
   if (loading) {
-    return <div>대기중</div>;
+    return <Loading />;
   }
+
   if (!data) {
     return <div>데이터없음!</div>;
   }
 
   return (
-    <a href="https://naver.com">
+    <a href={data.url}>
       <Wrapper
         onMouseOver={() => setIsHovering(1)}
         onMouseOut={() => setIsHovering(0)}
       >
         <ImageArea>
-          <Thumbnail src="" />
+          <Thumbnail src="http://dgc5tipxmabl6.cloudfront.net/advertise" />
           <Icon src="assets_header/clickIcon.png" />
           {isHovering ? (
             <Barogagi>
@@ -129,11 +131,11 @@ const Ad = () => {
           )}
         </ImageArea>
         <TextArea>
-          <Title>""</Title>
-          <Detail>""</Detail>
+          <Title>{data.title}</Title>
+          <Detail>{data.detail}</Detail>
           <Info>
             <Tag>광고</Tag>
-            <Channel>""</Channel>
+            <Channel>{data.company}</Channel>
           </Info>
         </TextArea>
       </Wrapper>
