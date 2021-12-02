@@ -2,7 +2,6 @@ import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import Loading from "../component/Main/Loading";
 import LargeVideoWithChannel from "../component/Subscribe/LargeVIdewWithChannel";
 
 const Subscribe = () => {

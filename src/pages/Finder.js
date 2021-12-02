@@ -1,10 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import LargeVideo from "../component/Finder/LargeVideo";
-import Loading from "../component/Main/Loading";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Video from "../component/Main/Video";
+
+import popular from "../assets/card/popular.png";
+import music from "../assets/card/music.png";
+import movie from "../assets/card/movie.png";
+import game from "../assets/card/game.png";
+import sport from "../assets/card/sport.png";
+import learn from "../assets/card/learn.png";
 
 const Finder = () => {
   const [videos, setVideos] = useState(null);
@@ -36,12 +41,12 @@ const Finder = () => {
   return (
     <Wrapper>
       <Cards>
-        <Card src="card/popular.png" />
-        <Card src="card/music.png" />
-        <Card src="card/movie.png" />
-        <Card src="card/game.png" />
-        <Card src="card/sport.png" />
-        <Card src="card/learn.png" />
+        <Card src={popular} />
+        <Card src={music} />
+        <Card src={movie} />
+        <Card src={game} />
+        <Card src={sport} />
+        <Card src={learn} />
       </Cards>
       {videos.map((i) => (
         <LargeVideo index={i.videoIdx} />

@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import LoadImage from "../loading.png";
 
 const Loading = () => {
   return (
     <VideoItem>
-      <Thumbnail src="loading.png" />
-      <Profile src="loading.png" />
+      <Thumbnail src={LoadImage} />
+      <Profile src={LoadImage} />
       <Info>
         <Title />
         <Chanel />

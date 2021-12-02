@@ -5,12 +5,16 @@ import { IoSearchOutline } from "react-icons/io5";
 import { BsGrid3X3Gap } from "react-icons/bs";
 import { HiOutlineDotsVertical } from "react-icons/hi";
 
+import Logo from "../assets/assets_header/Logo.png";
+import pp from "../assets/assets_header/PP.png";
+import Value from "../assets/assets_header/Value.png";
+
 const Header = () => {
   return (
     <Wrapper>
       <Set>
         <FiMenu className="icon" />
-        <Button src="assets_header/Logo.png" />
+        <Button src={Logo} />
       </Set>
 
       <Search>
@@ -21,8 +25,8 @@ const Header = () => {
       <Set>
         <BsGrid3X3Gap className="icon" />
         <HiOutlineDotsVertical className="icon" />
-        <Button src="assets_header/Value.png" />
-        <Button src="assets_header/pp.png" />
+        <Button src={Value} />
+        <Button src={pp} />
       </Set>
     </Wrapper>
   );

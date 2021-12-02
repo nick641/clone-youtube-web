@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import Finder from "./pages/Finder";
 import Main from "./pages/Main";
 import Subscribe from "./pages/Subscribe";

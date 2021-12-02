@@ -2,18 +2,32 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+import clickedHome from "../assets/icon/clicked-home.png";
+import home from "../assets/icon/home.png";
+import clickedExplore from "../assets/icon/clicked-explore.png";
+import explore from "../assets/icon/explore.png";
+import clicedSub from "../assets/icon/clicked-subscribe.png";
+import subscribe from "../assets/icon/subscribe.png";
+import keep from "../assets/icon/keep.png";
+import viewRecord from "../assets/icon/view_record.png";
+import myVideo from "../assets/icon/my_video.png";
+import savedVideo from "../assets/icon/saved_video.png";
+import likedVideo from "../assets/icon/liked_video.png";
+import film from "../assets/icon/film.png";
+import edu from "../assets/icon/edu.png";
+
 const Sidebar = ({ active }) => {
   return (
     <Container>
       <Link to="/" className="link">
         {active === "main" ? (
           <MainMenuDiv style={{ backgroundColor: "#cacaca" }}>
-            <Icon src="icon/clicked-home.png"></Icon>
+            <Icon src={clickedHome}></Icon>
             <MenuSpan>홈</MenuSpan>
           </MainMenuDiv>
         ) : (
           <MainMenuDiv>
-            <Icon src="icon/home.png"></Icon>
+            <Icon src={home}></Icon>
             <MenuSpan>홈</MenuSpan>
           </MainMenuDiv>
         )}
@@ -21,12 +35,12 @@ const Sidebar = ({ active }) => {
       <Link to="/Finder" className="link">
         {active === "finder" ? (
           <MainMenuDiv style={{ backgroundColor: "#cacaca" }}>
-            <Icon src="icon/clicked-explore.png"></Icon>
+            <Icon src={clickedExplore}></Icon>
             <MenuSpan>탐색</MenuSpan>
           </MainMenuDiv>
         ) : (
           <MainMenuDiv>
-            <Icon src="icon/explore.png"></Icon>
+            <Icon src={explore}></Icon>
             <MenuSpan>탐색</MenuSpan>
           </MainMenuDiv>
         )}
@@ -34,12 +48,12 @@ const Sidebar = ({ active }) => {
       <Link to="/Subscribe" className="link">
         {active === "subscribe" ? (
           <MainMenuDiv style={{ backgroundColor: "#cacaca" }}>
-            <Icon src="icon/clicked-subscribe.png"></Icon>
+            <Icon src={clicedSub}></Icon>
             <MenuSpan>구독</MenuSpan>
           </MainMenuDiv>
         ) : (
           <MainMenuDiv>
-            <Icon src="icon/subscribe.png"></Icon>
+            <Icon src={subscribe}></Icon>
             <MenuSpan>구독</MenuSpan>
           </MainMenuDiv>
         )}
@@ -47,23 +61,23 @@ const Sidebar = ({ active }) => {
       <Line />
 
       <MenuDiv>
-        <Icon src="icon/keep.png"></Icon>
+        <Icon src={keep}></Icon>
         <MenuSpan>보관함</MenuSpan>
       </MenuDiv>
       <MenuDiv>
-        <Icon src="icon/view_record.png"></Icon>
+        <Icon src={viewRecord}></Icon>
         <MenuSpan>시청기록</MenuSpan>
       </MenuDiv>
       <MenuDiv>
-        <Icon src="icon/my_video.png"></Icon>
+        <Icon src={myVideo}></Icon>
         <MenuSpan>내 동영상</MenuSpan>
       </MenuDiv>
       <MenuDiv>
-        <Icon src="icon/saved_video.png"></Icon>
+        <Icon src={savedVideo}></Icon>
         <MenuSpan>나중에 볼 동영상</MenuSpan>
       </MenuDiv>
       <MenuDiv>
-        <Icon src="icon/liked_video.png"></Icon>
+        <Icon src={likedVideo}></Icon>
         <MenuSpan>좋아요 표시한 동영상</MenuSpan>
       </MenuDiv>
       <Line />
@@ -78,27 +92,27 @@ const Sidebar = ({ active }) => {
         YOUTUBE 더보기
       </div>
       <MenuDiv>
-        <Icon src="icon/film.png"></Icon>
+        <Icon src={film}></Icon>
         <MenuSpan>YouTube Premium</MenuSpan>
       </MenuDiv>
       <MenuDiv>
-        <Icon src="icon/film.png"></Icon>
+        <Icon src={film}></Icon>
         <MenuSpan>영화</MenuSpan>
       </MenuDiv>
       <MenuDiv>
-        <Icon src="icon/film.png"></Icon>
+        <Icon src={film}></Icon>
         <MenuSpan>게임</MenuSpan>
       </MenuDiv>
       <MenuDiv>
-        <Icon src="icon/film.png"></Icon>
+        <Icon src={film}></Icon>
         <MenuSpan>실시간</MenuSpan>
       </MenuDiv>
       <MenuDiv>
-        <Icon src="icon/edu.png"></Icon>
+        <Icon src={edu}></Icon>
         <MenuSpan>학습</MenuSpan>
       </MenuDiv>
       <MenuDiv>
-        <Icon src="icon/film.png"></Icon>
+        <Icon src={film}></Icon>
         <MenuSpan>스포츠</MenuSpan>
       </MenuDiv>
       <Line />
