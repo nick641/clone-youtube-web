@@ -1,11 +1,11 @@
 import React from "react";
-import { useEffect, useState } from "react";
-import axios from "axios";
 import styled from "styled-components";
-import Loading from "../Main/Loading";
-import LargeVideoWithChannel from "./LargeVIdewWithChannel";
+import LargeVideo from "../component/Finder/LargeVideo";
+import Loading from "../component/Main/Loading";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-const Subscribe = () => {
+const Finder = () => {
   const [videos, setVideos] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -63,8 +63,17 @@ const Subscribe = () => {
 
   return (
     <Wrapper>
+      <Cards>
+        <Card src="card/popular.png" />
+        <Card src="card/music.png" />
+        <Card src="card/movie.png" />
+        <Card src="card/game.png" />
+        <Card src="card/sport.png" />
+        <Card src="card/learn.png" />
+      </Cards>
+
       {videos.map((index) => {
-        <LargeVideoWithChannel index={index} />;
+        <LargeVideo index={index} />;
       })}
     </Wrapper>
   );
@@ -73,7 +82,6 @@ const Subscribe = () => {
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding-top: 20px;
   gap: 20px;
   width: 70vw;
 
@@ -85,4 +93,18 @@ const Wrapper = styled.div`
   }
 `;
 
-export default Subscribe;
+const Cards = styled.div`
+  margin-bottom: 50px;
+`;
+const Card = styled.img`
+  width: 210px;
+  height: 116px;
+  border-radius: 10px;
+
+  :hover {
+    filter: brightness(80%);
+    cursor: pointer;
+  }
+`;
+
+export default Finder;

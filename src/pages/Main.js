@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import Layout from "../Layout";
-import Filter from "./Filter";
+import Layout from "../shared/Layout";
+import Filter from "../component/Main/Filter";
 import { useState } from "react";
-import VideoList from "./VideoList";
+import VideoList from "../component/Main/VideoList";
 
 const FilterTag = [
   "Total",
