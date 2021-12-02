@@ -59,7 +59,11 @@ const VideoList = () => {
   }
 
   if (!videos) {
-    return <div>데이터없다!</div>;
+    return (
+      <div>
+        사이트설정(url창의 자물쇠)>안전하지 않은 콘텐츠>허용 으로 바꿔주세요!
+      </div>
+    );
   }
 
   return (
