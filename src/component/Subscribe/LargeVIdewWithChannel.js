@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import LargeVideo from "../Finder/LargeVideo";
 
-const LargeVideoWithChannel = () => {
+const LargeVideoWithChannel = ({ index }) => {
   return (
     <Wrapper>
       <Channel>

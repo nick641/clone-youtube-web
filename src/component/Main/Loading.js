@@ -17,27 +17,16 @@ const Loading = () => {
 export default Loading;
 
 const VideoItem = styled.div`
-  width: 280px;
+  width: 300px;
   display: inline-block;
   padding: 8px;
   text-align: left;
   cursor: pointer;
-
-  @media (max-width: 800px) {
-    width: 30vw;
-  }
-
-  @media (max-width: 800px) {
-    width: 40vw;
-  }
-
-  @media (max-width: 500px) {
-    width: 70vw;
-  }
 `;
 
 const Thumbnail = styled.img`
   width: 100%;
+  height: 150px;
   margin-bottom: 10px;
 `;
 

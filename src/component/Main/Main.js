@@ -21,7 +21,7 @@ const FilterTag = [
   "interior",
 ];
 
-const MainContent = () => {
+const Main = () => {
   const [clicked, setClicked] = useState("전체");
 
   const filterMap = (name) => {
@@ -36,10 +36,6 @@ const MainContent = () => {
       <VideoList />
     </Wrapper>
   );
-};
-
-const Main = () => {
-  return <Layout active="home" content={<MainContent />} />;
 };
 
 const Wrapper = styled.div`
