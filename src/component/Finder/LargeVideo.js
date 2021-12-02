@@ -1,28 +1,29 @@
 import React from "react";
 import styled from "styled-components";
 
-const LargeVideo = () => {
+const LargeVideo = ({ data }) => {
+  const { videoUrl, videoThumbnail, videoCreateAt, videoTitle, videoDetail } =
+    data;
+
   return (
-    <Wrapper>
-      <img className="thumb" src="thumbnail.jpg" />
-      <div className="text">
-        <div className="title">'로블룩스 개발자'가 필요한 시대가 온다?!</div>
-        <div className="about">
-          노마드 코더 Nomad Coders * 조회수 2.6만회 * 2일전
+    <a href={videoUrl}>
+      <Wrapper>
+        <img className="thumb" src={videoThumbnail} />
+        <div className="text">
+          <div className="title">{videoTitle}</div>
+          <div className="about">
+            노마드 코더 Nomad Coders * 조회수 2.6만회 * {videoCreateAt}
+          </div>
+          <div className="detail">{videoDetail}</div>
         </div>
-        <div className="detail">
-          지난 10월 열린 로블록스 개발자 컨퍼런스 그리고 로블록스 Investor Day
-          를 보고, 느꼈던 바를 공유합니다. 로블록스는 과연 새로운 시대를 가장...
-        </div>
-      </div>
-    </Wrapper>
+      </Wrapper>
+    </a>
   );
 };
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
-
   .thumb {
     width: 246px;
     height: 138px;
@@ -47,6 +48,7 @@ const Wrapper = styled.div`
     }
 
     .title {
+      text-decoration: none;
       color: black;
       font-size: 1.1rem;
       font-weight: 400;
@@ -59,6 +61,7 @@ const Wrapper = styled.div`
     }
 
     .about {
+      text-decoration: none;
       margin-bottom: 10px;
       overflow: hidden;
       display: -webkit-box;
@@ -68,6 +71,7 @@ const Wrapper = styled.div`
     }
 
     .detail {
+      text-decoration: none;
       margin-bottom: 10px;
       overflow: hidden;
       display: -webkit-box;

@@ -4,6 +4,28 @@ import Layout from "../Layout";
 import LargeVideo from "./LargeVideo";
 
 const FinderContent = () => {
+  const sampleData = {
+    videoIdx: 1,
+    videoUrl:
+      "http://dgc5tipxmabl6.cloudfront.net/puppy1/Default/HLS/puppy1.m3u8",
+    videoThumbnail:
+      "http://dgc5tipxmabl6.cloudfront.net/puppy1/Default/Thumbnails/puppy1.0000000.jpg",
+    videoCreatedAt: "2021-11-26T18:11:23",
+    videoTitle: "짱절미",
+    videoDetail: "해맑게 웃는 짱절미",
+    videoCategory: "강아지",
+    category: {
+      categoryIdx: 4,
+      categoryName: "동물",
+      categoryDetail: 0.5,
+    },
+    user: {
+      userIdx: 1,
+      userId: "hey",
+      userPassword: "0000",
+      userCreatedAt: "2021-11-26T03:16:23",
+    },
+  };
   return (
     <Wrapper>
       <Cards>
@@ -14,19 +36,14 @@ const FinderContent = () => {
         <Card src="card/sport.png" />
         <Card src="card/learn.png" />
       </Cards>
-      <LargeVideo />
-      <LargeVideo />
-      <LargeVideo />
-      <LargeVideo />
-      <LargeVideo />
-      <LargeVideo />
-      <LargeVideo />
-      <LargeVideo />
-      <LargeVideo />
-      <LargeVideo />
-      <LargeVideo />
-      <LargeVideo />
-      <LargeVideo />
+      <LargeVideo data={sampleData} />
+      <LargeVideo data={sampleData} />
+      <LargeVideo data={sampleData} />
+      <LargeVideo data={sampleData} />
+      <LargeVideo data={sampleData} />
+      <LargeVideo data={sampleData} />
+      <LargeVideo data={sampleData} />
+      <LargeVideo data={sampleData} />
     </Wrapper>
   );
 };
