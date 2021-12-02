@@ -7,8 +7,7 @@ import Loading from "./Loading";
 const Wrapper = styled.div`
   display: inline-block;
   flex-direction: column;
-  width: 280px;
-  height: 241px;
+  width: 300px;
   font-size: 14px;
   margin: 8px;
   text-align: left;
@@ -16,10 +15,8 @@ const Wrapper = styled.div`
 `;
 
 const ImageArea = styled.div`
-  display: flex;
   position: relative;
-  width: 100%;
-  height: 153px;
+  height: auto;
   margin-bottom: 10px;
 `;
 
@@ -38,7 +35,6 @@ const Barogagi = styled.div`
 
 const Thumbnail = styled.img`
   display: inline-block;
-  margin-bottom: 10px;
   width: 100%;
   height: 100%;
 `;

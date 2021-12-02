@@ -26,7 +26,36 @@ const VideoList = () => {
   }, []);
 
   if (loading) {
-    return <Wrapper>로딩중</Wrapper>;
+    return (
+      <Wrapper>
+        <Loading />
+        <Loading />
+        <Loading />
+        <Loading />
+        <Loading />
+        <Loading />
+        <Loading />
+        <Loading />
+        <Loading />
+        <Loading />
+        <Loading />
+        <Loading />
+        <Loading />
+        <Loading />
+        <Loading />
+        <Loading />
+        <Loading />
+        <Loading />
+        <Loading />
+        <Loading />
+        <Loading />
+        <Loading />
+        <Loading />
+        <Loading />
+        <Loading />
+        <Loading />
+      </Wrapper>
+    );
   }
 
   if (!videos) {
@@ -39,15 +68,17 @@ const VideoList = () => {
       {videos.map((i) => (
         <Video index={i.videoIdx} />
       ))}
+      {videos.map((i) => (
+        <Video index={i.videoIdx} />
+      ))}
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
-  display: grid;
-  row-gap: 10px;
-  column-gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(285px, auto));
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 `;
 
 export default VideoList;
