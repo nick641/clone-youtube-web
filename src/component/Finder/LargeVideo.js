@@ -3,11 +3,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import moment from "moment";
-import HoverVideoPlayer from "react-hover-video-player";
+import ReactPlayer from "react-player";
 
 const LargeVideo = ({ index }) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [hover, setHover] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,25 +40,40 @@ const LargeVideo = ({ index }) => {
   };
 
   return (
-    <a href={data.videoUrl}>
-      <Wrapper>
-        <HoverVideoPlayer />
-        <img className="thumb" src={data.videoThumbnail} />
-        <div className="text">
-          <div className="title">{data.videoTitle}</div>
-          <div className="about">
-            노마드 코더 Nomad Coders * 조회수 2.6만회 * {relativeDate()}
-          </div>
-          <div className="detail">{data.videoDetail}</div>
+    <Wrapper
+      onMouseOver={() => setHover(true)}
+      onMouseOut={() => setHover(false)}
+    >
+      {hover ? (
+        <div className="thumb">
+          <ReactPlayer
+            url={data.videoUrl}
+            muted="true"
+            width="246px"
+            height="138px"
+            playing="true"
+            style={{ marginBottom: "10px" }}
+          />
         </div>
-      </Wrapper>
-    </a>
+      ) : (
+        <img className="thumb" src={data.videoThumbnail} />
+      )}
+      <div className="text">
+        <div className="title">{data.videoTitle}</div>
+        <div className="about">
+          노마드 코더 Nomad Coders * 조회수 2.6만회 * {relativeDate()}
+        </div>
+        <div className="detail">{data.videoDetail}</div>
+      </div>
+    </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
+  cursor: pointer;
+
   .thumb {
     width: 246px;
     height: 138px;
@@ -91,7 +107,6 @@ const Wrapper = styled.div`
       text-overflow: ellipsis;
       -webkit-line-clamp: 2; /* 표시하고자 하는 라인 수 */
       -webkit-box-orient: vertical;
-      text-decoration: none;
     }
 
     .about {
@@ -101,7 +116,6 @@ const Wrapper = styled.div`
       text-overflow: ellipsis;
       -webkit-line-clamp: 2; /* 표시하고자 하는 라인 수 */
       -webkit-box-orient: vertical;
-      text-decoration: none;
     }
 
     .detail {
@@ -111,7 +125,6 @@ const Wrapper = styled.div`
       text-overflow: ellipsis;
       -webkit-line-clamp: 2; /* 표시하고자 하는 라인 수 */
       -webkit-box-orient: vertical;
-      text-decoration: none;
     }
   }
 `;

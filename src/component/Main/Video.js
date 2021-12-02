@@ -10,6 +10,7 @@ import ReactPlayer from "react-player";
 const Video = ({ index }) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [hover, setHover] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -41,16 +42,23 @@ const Video = ({ index }) => {
   };
 
   return (
-    <VideoItem>
-      <Thumbnail>
+    <VideoItem
+      onMouseOver={() => setHover(true)}
+      onMouseOut={() => setHover(false)}
+    >
+      {hover ? (
         <ReactPlayer
           url={data.videoUrl}
           muted="true"
           width="100%"
-          height="100%"
+          height="auto"
           playing="true"
+          style={{ marginBottom: "10px" }}
         />
-      </Thumbnail>
+      ) : (
+        <Thumbnail src={data.videoThumbnail} />
+      )}
+
       <Profile src={youtubeData["data"][index].channelThumbnail} />
       <Info>
         <Title>{data.videoTitle}</Title>
@@ -69,9 +77,10 @@ const VideoItem = styled.div`
   display: inline-block;
   padding: 8px;
   text-align: left;
+  cursor: pointer;
 `;
 
-const Thumbnail = styled.div`
+const Thumbnail = styled.img`
   width: 100%;
   margin-bottom: 10px;
 `;
