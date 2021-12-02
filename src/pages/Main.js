@@ -1,10 +1,9 @@
-import Ad from "./Ad";
-import Video from "./Video";
 import React from "react";
 import styled from "styled-components";
-import Layout from "../Layout";
-import Filter from "./Filter";
+import Layout from "../shared/Layout";
+import Filter from "../component/Main/Filter";
 import { useState } from "react";
+import VideoList from "../component/Main/VideoList";
 
 const FilterTag = [
   "Total",
@@ -22,7 +21,7 @@ const FilterTag = [
   "interior",
 ];
 
-const MainContent = () => {
+const Main = () => {
   const [clicked, setClicked] = useState("전체");
 
   const filterMap = (name) => {
@@ -34,44 +33,16 @@ const MainContent = () => {
   return (
     <Wrapper>
       <Filters>{FilterTag.map(filterMap)}</Filters>
-
-      <Videos>
-        <Ad></Ad>
-        <Video></Video>
-        <Video></Video>
-        <Video></Video>
-        <Video></Video>
-        <Video></Video>
-        <Video></Video>
-        <Video></Video>
-        <Video></Video>
-        <Video></Video>
-        <Video></Video>
-        <Video></Video>
-        <Video></Video>
-        <Video></Video>
-        <Video></Video>
-        <Video></Video>
-        <Video></Video>
-        <Video></Video>
-        <Video></Video>
-        <Video></Video>
-        <Video></Video>
-      </Videos>
+      <VideoList />
     </Wrapper>
   );
-};
-
-const Main = () => {
-  return <Layout active="home" content={<MainContent />} />;
 };
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 70px;
   gap: 20px;
-  width: 75vw;
+  width: 80vw;
 
   @media (max-width: 1300px) {
     width: 80vw;
@@ -84,11 +55,9 @@ const Filters = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  position: fixed;
-  top: 70px;
   background-color: white;
 
-  width: 74%;
+  width: 75vw;
   @media (max-width: 1300px) {
     width: 100vw;
   }
@@ -102,15 +71,6 @@ const Filters = styled.div`
   .no-scroll::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera */
   }
-
-  z-index: 1;
-`;
-
-const Videos = styled.div`
-  display: grid;
-  row-gap: 10px;
-  column-gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(285px, auto));
 `;
 
 export default Main;

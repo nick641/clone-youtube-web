@@ -6,7 +6,7 @@ const Sidebar = ({ active }) => {
   return (
     <Container>
       <Link to="/" className="link">
-        {active === "home" ? (
+        {active === "main" ? (
           <MainMenuDiv style={{ backgroundColor: "#cacaca" }}>
             <Icon src="icon/clicked-home.png"></Icon>
             <MenuSpan>홈</MenuSpan>

@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import Loading from "./Loading";
 
 const Wrapper = styled.div`
   display: inline-block;
   flex-direction: column;
-  width: 280px;
-  height: 241px;
+  width: 300px;
   font-size: 14px;
   margin: 8px;
   text-align: left;
@@ -14,10 +15,8 @@ const Wrapper = styled.div`
 `;
 
 const ImageArea = styled.div`
-  display: flex;
   position: relative;
-  width: 100%;
-  height: 153px;
+  height: auto;
   margin-bottom: 10px;
 `;
 
@@ -36,7 +35,6 @@ const Barogagi = styled.div`
 
 const Thumbnail = styled.img`
   display: inline-block;
-  margin-bottom: 10px;
   width: 100%;
   height: 100%;
 `;
@@ -55,7 +53,9 @@ const TextArea = styled.div`
   gap: 5px;
 `;
 
-const Title = styled.div``;
+const Title = styled.div`
+  color: black;
+`;
 
 const Detail = styled.div`
   color: grey;
@@ -85,34 +85,58 @@ const Channel = styled.div``;
 const Ad = () => {
   const [isHovering, setIsHovering] = useState(0);
 
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get("http://3.38.67.46:8080/advertise/");
+        setData(response.data);
+      } catch (e) {
+        console.log(e);
+      }
+      setLoading(false);
+    };
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
+
+  if (!data) {
+    return <div>데이터없음!</div>;
+  }
+
   return (
-    <Wrapper
-      onMouseOver={() => setIsHovering(1)}
-      onMouseOut={() => setIsHovering(0)}
-    >
-      <ImageArea>
-        <Thumbnail src="assets_header/thumbnail.png" />
-        <Icon src="assets_header/clickIcon.png" />
-        {isHovering ? (
-          <Barogagi>
-            <p className="text">자세히 알아보기</p>
-          </Barogagi>
-        ) : (
-          ""
-        )}
-      </ImageArea>
-      <TextArea>
-        <Title>브라우저에서 지금 플레이하세요</Title>
-        <Detail>
-          시간이 아깝지 않은 부분 유료화 게임을 찾으시나요? 이미 찾았어요! 지금
-          확인하세요!
-        </Detail>
-        <Info>
-          <Tag>광고</Tag>
-          <Channel>Hero Wars</Channel>
-        </Info>
-      </TextArea>
-    </Wrapper>
+    <a href={data.url}>
+      <Wrapper
+        onMouseOver={() => setIsHovering(1)}
+        onMouseOut={() => setIsHovering(0)}
+      >
+        <ImageArea>
+          <Thumbnail src={data.thumbnail} />
+          <Icon src="assets_header/clickIcon.png" />
+          {isHovering ? (
+            <Barogagi>
+              <p className="text">자세히 알아보기</p>
+            </Barogagi>
+          ) : (
+            ""
+          )}
+        </ImageArea>
+        <TextArea>
+          <Title>{data.title}</Title>
+          <Detail>{data.detail}</Detail>
+          <Info>
+            <Tag>광고</Tag>
+            <Channel>{data.company}</Channel>
+          </Info>
+        </TextArea>
+      </Wrapper>
+    </a>
   );
 };
 

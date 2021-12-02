@@ -1,20 +1,70 @@
 import React from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import styled from "styled-components";
+import Loading from "./Loading";
+import moment from "moment";
+import youtubeData from "../youtubeData.json";
+import ReactPlayer from "react-player";
 
-const Video = () => {
+const Video = ({ index }) => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [hover, setHover] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get(
+          `http://3.38.67.46:8080/video/get/${index}`
+        );
+        setData(response.data);
+        console.log(data);
+      } catch (e) {
+        console.log(e);
+      }
+      setLoading(false);
+    };
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
+
+  if (!data) {
+    return <Loading />;
+  }
+
+  const relativeDate = () => {
+    return moment(data.videoCreatedAt).startOf("day").fromNow(); // in an hour
+  };
+
   return (
-    <VideoItem>
-      <Thumbnail src="thumbnail.jpg" />
-      <Profile src="Profile.jpg" />
+    <VideoItem
+      onMouseOver={() => setHover(true)}
+      onMouseOut={() => setHover(false)}
+    >
+      {hover ? (
+        <ReactPlayer
+          url={data.videoUrl}
+          muted="true"
+          width="100%"
+          height="auto"
+          playing="true"
+          style={{ marginBottom: "10px" }}
+        />
+      ) : (
+        <Thumbnail src={data.videoThumbnail} />
+      )}
+
+      <Profile src={youtubeData["data"][index].channelThumbnail} />
       <Info>
-        <Title>
-          (ENG) 2️⃣ 이분 스우파에서 많이 자중한 거임^^ 댄스계의 터키아이스크림
-          가비의 도른자 모먼트에 리더들 모두 경악ㅋㅋㅋㅋㅋㅋ / [문명특급
-          EP.221-2]
-        </Title>
-        <Chanel>문명특급 - MMTG</Chanel>
-        <Views>조회수 250만회·</Views>
-        <Date>6일 전</Date>
+        <Title>{data.videoTitle}</Title>
+        <Chanel>{data.videoChannel}</Chanel>
+        <Views>조회수 {data.videoCount}회·</Views>
+        <Date>{relativeDate()}</Date>
       </Info>
     </VideoItem>
   );
@@ -22,14 +72,8 @@ const Video = () => {
 
 export default Video;
 
-/*const VideoList = styled.div`
-  float:left;
-  flex-wrap: wrap;
-  display: flex;
-`*/
-
 const VideoItem = styled.div`
-  width: 280px;
+  width: 300px;
   display: inline-block;
   padding: 8px;
   text-align: left;
@@ -54,12 +98,12 @@ const Title = styled.div`
   overflow: hidden;
   white-space: normal;
   line-height: 1.2;
-  height: 2.4em;
   text-align: left;
   word-wrap: break-word;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  color: black;
 `;
 
 const Chanel = styled.div`
