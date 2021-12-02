@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const Wrapper = styled.div`
   display: inline-block;
@@ -85,42 +86,58 @@ const Channel = styled.div``;
 const Ad = () => {
   const [isHovering, setIsHovering] = useState(0);
 
-  const [data, setData] = useState({
-    company: "",
-    title: "",
-    detail: "",
-    thumbnail: "",
-    url: "",
-  });
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get("http://3.38.67.46:8080/advertise/");
+        console.log(response);
+        setData(response.data);
+      } catch (e) {
+        console.log(e);
+      }
+      setLoading(false);
+    };
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <div>대기중</div>;
+  }
+  if (!data) {
+    return <div>데이터없음!</div>;
+  }
 
   return (
-    <Wrapper
-      onMouseOver={() => setIsHovering(1)}
-      onMouseOut={() => setIsHovering(0)}
-    >
-      <ImageArea>
-        <Thumbnail src="assets_header/thumbnail.png" />
-        <Icon src="assets_header/clickIcon.png" />
-        {isHovering ? (
-          <Barogagi>
-            <p className="text">자세히 알아보기</p>
-          </Barogagi>
-        ) : (
-          ""
-        )}
-      </ImageArea>
-      <TextArea>
-        <Title>브라우저에서 지금 플레이하세요</Title>
-        <Detail>
-          시간이 아깝지 않은 부분 유료화 게임을 찾으시나요? 이미 찾았어요! 지금
-          확인하세요!
-        </Detail>
-        <Info>
-          <Tag>광고</Tag>
-          <Channel>Hero Wars</Channel>
-        </Info>
-      </TextArea>
-    </Wrapper>
+    <a href="https://naver.com">
+      <Wrapper
+        onMouseOver={() => setIsHovering(1)}
+        onMouseOut={() => setIsHovering(0)}
+      >
+        <ImageArea>
+          <Thumbnail src="" />
+          <Icon src="assets_header/clickIcon.png" />
+          {isHovering ? (
+            <Barogagi>
+              <p className="text">자세히 알아보기</p>
+            </Barogagi>
+          ) : (
+            ""
+          )}
+        </ImageArea>
+        <TextArea>
+          <Title>""</Title>
+          <Detail>""</Detail>
+          <Info>
+            <Tag>광고</Tag>
+            <Channel>""</Channel>
+          </Info>
+        </TextArea>
+      </Wrapper>
+    </a>
   );
 };
 
