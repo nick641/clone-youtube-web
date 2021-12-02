@@ -120,7 +120,7 @@ const Ad = () => {
         onMouseOut={() => setIsHovering(0)}
       >
         <ImageArea>
-          <Thumbnail src="http://dgc5tipxmabl6.cloudfront.net/advertise" />
+          <Thumbnail src={data.thumbnail} />
           <Icon src="assets_header/clickIcon.png" />
           {isHovering ? (
             <Barogagi>
