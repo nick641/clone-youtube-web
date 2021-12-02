@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import Loading from "./Loading";
+import moment from "moment";
 
 const Video = ({ index }) => {
   const [data, setData] = useState(null);
@@ -33,6 +34,10 @@ const Video = ({ index }) => {
     return <Loading />;
   }
 
+  const relativeDate = () => {
+    return moment(data.videoCreatedAt).startOf("day").fromNow(); // in an hour
+  };
+
   return (
     <a href={data.videoUrl}>
       <VideoItem>
@@ -41,8 +46,8 @@ const Video = ({ index }) => {
         <Info>
           <Title>{data.videoTitle}</Title>
           <Chanel>문명특급 - MMTG</Chanel>
-          <Views>조회수 250만회·</Views>
-          <Date>{data.videoCreateAt}</Date>
+          <Views>조회수 {data.videoCount}회·</Views>
+          <Date>{relativeDate()}</Date>
         </Info>
       </VideoItem>
     </a>

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import Loading from "../Main/Loading";
+import moment from "moment";
 
 const LargeVideo = ({ index }) => {
   const [data, setData] = useState(null);
@@ -33,6 +34,10 @@ const LargeVideo = ({ index }) => {
     return <Wrapper>데이터없다</Wrapper>;
   }
 
+  const relativeDate = () => {
+    return moment(data.videoCreatedAt).startOf("day").fromNow(); // in an hour
+  };
+
   return (
     <a href={data.videoUrl}>
       <Wrapper>
@@ -40,7 +45,7 @@ const LargeVideo = ({ index }) => {
         <div className="text">
           <div className="title">{data.videoTitle}</div>
           <div className="about">
-            노마드 코더 Nomad Coders * 조회수 2.6만회 * {data.videoCreateAt}
+            노마드 코더 Nomad Coders * 조회수 2.6만회 * {relativeDate()}
           </div>
           <div className="detail">{data.videoDetail}</div>
         </div>
