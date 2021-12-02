@@ -1,10 +1,9 @@
-import Ad from "./Ad";
-import Video from "./Video";
 import React from "react";
 import styled from "styled-components";
 import Layout from "../Layout";
 import Filter from "./Filter";
 import { useState } from "react";
+import VideoList from "./VideoList";
 
 const FilterTag = [
   "Total",
@@ -31,37 +30,10 @@ const MainContent = () => {
     );
   };
 
-  const sampleData = {
-    videoIdx: 1,
-    videoUrl:
-      "http://dgc5tipxmabl6.cloudfront.net/puppy1/Default/HLS/puppy1.m3u8",
-    videoThumbnail:
-      "http://dgc5tipxmabl6.cloudfront.net/puppy1/Default/Thumbnails/puppy1.0000000.jpg",
-    videoCreatedAt: "2021-11-26T18:11:23",
-    videoTitle: "짱절미",
-    videoDetail: "해맑게 웃는 짱절미",
-    videoCategory: "강아지",
-    category: {
-      categoryIdx: 4,
-      categoryName: "동물",
-      categoryDetail: 0.5,
-    },
-    user: {
-      userIdx: 1,
-      userId: "hey",
-      userPassword: "0000",
-      userCreatedAt: "2021-11-26T03:16:23",
-    },
-  };
-
   return (
     <Wrapper>
       <Filters>{FilterTag.map(filterMap)}</Filters>
-
-      <Videos>
-        <Ad></Ad>
-        <Video />
-      </Videos>
+      <VideoList />
     </Wrapper>
   );
 };
@@ -103,13 +75,6 @@ const Filters = styled.div`
   .no-scroll::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera */
   }
-`;
-
-const Videos = styled.div`
-  display: grid;
-  row-gap: 10px;
-  column-gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(285px, auto));
 `;
 
 export default Main;

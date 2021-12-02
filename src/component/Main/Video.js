@@ -1,10 +1,10 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Loading from "./Loading";
 import styled from "styled-components";
+import Loading from "./Loading";
 
-const Video = () => {
+const Video = ({ index }) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -12,9 +12,11 @@ const Video = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await axios.get("http://3.38.67.46:8080/video/get/1");
-        console.log(response);
+        const response = await axios.get(
+          `http://3.38.67.46:8080/video/get/${index}`
+        );
         setData(response.data);
+        console.log(data);
       } catch (e) {
         console.log(e);
       }
@@ -28,7 +30,7 @@ const Video = () => {
   }
 
   if (!data) {
-    return <div>데이터없음!</div>;
+    return <Loading />;
   }
 
   return (
@@ -48,12 +50,6 @@ const Video = () => {
 };
 
 export default Video;
-
-/*const VideoList = styled.div`
-  float:left;
-  flex-wrap: wrap;
-  display: flex;
-`*/
 
 const VideoItem = styled.div`
   width: 280px;
@@ -93,7 +89,6 @@ const Title = styled.div`
   overflow: hidden;
   white-space: normal;
   line-height: 1.2;
-  height: 2.4em;
   text-align: left;
   word-wrap: break-word;
   display: -webkit-box;

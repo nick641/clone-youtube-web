@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const Video = () => {
+const Loading = () => {
   return (
     <VideoItem>
       <Thumbnail src="loading.png" />
@@ -14,13 +14,7 @@ const Video = () => {
   );
 };
 
-export default Video;
-
-/*const VideoList = styled.div`
-  float:left;
-  flex-wrap: wrap;
-  display: flex;
-`*/
+export default Loading;
 
 const VideoItem = styled.div`
   width: 280px;
