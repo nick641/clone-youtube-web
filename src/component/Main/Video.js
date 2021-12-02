@@ -1,22 +1,22 @@
 import React from "react";
 import styled from "styled-components";
 
-const Video = () => {
+const Video = ({ data }) => {
+  const { videoUrl, videoThumbnail, videoCreateAt, videoTitle } = data;
+
   return (
-    <VideoItem>
-      <Thumbnail src="thumbnail.jpg" />
-      <Profile src="Profile.jpg" />
-      <Info>
-        <Title>
-          (ENG) 2️⃣ 이분 스우파에서 많이 자중한 거임^^ 댄스계의 터키아이스크림
-          가비의 도른자 모먼트에 리더들 모두 경악ㅋㅋㅋㅋㅋㅋ / [문명특급
-          EP.221-2]
-        </Title>
-        <Chanel>문명특급 - MMTG</Chanel>
-        <Views>조회수 250만회·</Views>
-        <Date>6일 전</Date>
-      </Info>
-    </VideoItem>
+    <a href={videoUrl}>
+      <VideoItem>
+        <Thumbnail src={videoThumbnail} />
+        <Profile src="Profile.jpg" />
+        <Info>
+          <Title>{videoTitle}</Title>
+          <Chanel>문명특급 - MMTG</Chanel>
+          <Views>조회수 250만회·</Views>
+          <Date>{videoCreateAt}</Date>
+        </Info>
+      </VideoItem>
+    </a>
   );
 };
 
@@ -72,6 +72,7 @@ const Title = styled.div`
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  color: black;
 `;
 
 const Chanel = styled.div`
