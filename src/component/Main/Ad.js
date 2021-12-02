@@ -57,7 +57,9 @@ const TextArea = styled.div`
   gap: 5px;
 `;
 
-const Title = styled.div``;
+const Title = styled.div`
+  color: black;
+`;
 
 const Detail = styled.div`
   color: grey;
