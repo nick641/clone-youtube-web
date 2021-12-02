@@ -1,15 +1,46 @@
 import React from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import LargeVideo from "../Finder/LargeVideo";
+import axios from "axios";
+import Loading from "../Main/Loading";
 
 const LargeVideoWithChannel = ({ index }) => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get(
+          `http://3.38.67.46:8080/video/get/${index}`
+        );
+        setData(response.data);
+        console.log(data);
+      } catch (e) {
+        console.log(e);
+      }
+      setLoading(false);
+    };
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
+
+  if (!data) {
+    return <Wrapper>데이터없다</Wrapper>;
+  }
+
   return (
     <Wrapper>
       <Channel>
         <img className="channel-icon" src="Profile.jpg" />
         <div className="channel-name">노마드 코더 Nomad Coders</div>
       </Channel>
-      <LargeVideo />
+      <LargeVideo index={index} />
     </Wrapper>
   );
 };

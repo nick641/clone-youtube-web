@@ -25,36 +25,7 @@ const Subscribe = () => {
   }, []);
 
   if (loading) {
-    return (
-      <Wrapper>
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-      </Wrapper>
-    );
+    return <Wrapper />;
   }
 
   if (!videos) {
@@ -63,9 +34,9 @@ const Subscribe = () => {
 
   return (
     <Wrapper>
-      {videos.map((index) => {
-        <LargeVideoWithChannel index={index} />;
-      })}
+      {videos.map((i) => (
+        <LargeVideoWithChannel index={i.videoIdx} />
+      ))}
     </Wrapper>
   );
 };
