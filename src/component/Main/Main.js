@@ -84,11 +84,9 @@ const Filters = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  position: fixed;
-  top: 70px;
   background-color: white;
 
-  width: 74%;
+  width: 75vw;
   @media (max-width: 1300px) {
     width: 100vw;
   }
@@ -102,8 +100,6 @@ const Filters = styled.div`
   .no-scroll::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera */
   }
-
-  z-index: 1;
 `;
 
 const Videos = styled.div`
