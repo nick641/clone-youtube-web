@@ -4,6 +4,7 @@ import styled from "styled-components";
 import LargeVideo from "../Finder/LargeVideo";
 import axios from "axios";
 import Loading from "../Main/Loading";
+import youtubeData from "../youtubeData.json";
 
 const LargeVideoWithChannel = ({ index }) => {
   const [data, setData] = useState(null);
@@ -37,8 +38,13 @@ const LargeVideoWithChannel = ({ index }) => {
   return (
     <Wrapper>
       <Channel>
-        <img className="channel-icon" src="Profile.jpg" />
-        <div className="channel-name">노마드 코더 Nomad Coders</div>
+        <img
+          className="channel-icon"
+          src={youtubeData["data"][index].channelThumbnail}
+        />
+        <div className="channel-name">
+          {youtubeData["data"][index].channelTitle}
+        </div>
       </Channel>
       <LargeVideo index={index} />
     </Wrapper>
