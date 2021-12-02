@@ -85,6 +85,14 @@ const Channel = styled.div``;
 const Ad = () => {
   const [isHovering, setIsHovering] = useState(0);
 
+  const [data, setData] = useState({
+    company: "",
+    title: "",
+    detail: "",
+    thumbnail: "",
+    url: "",
+  });
+
   return (
     <Wrapper
       onMouseOver={() => setIsHovering(1)}
