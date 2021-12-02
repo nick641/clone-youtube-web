@@ -4,6 +4,7 @@ import axios from "axios";
 import styled from "styled-components";
 import Loading from "./Loading";
 import moment from "moment";
+import youtubeData from "../youtubeData.json";
 
 const Video = ({ index }) => {
   const [data, setData] = useState(null);
@@ -42,10 +43,10 @@ const Video = ({ index }) => {
     <a href={data.videoUrl}>
       <VideoItem>
         <Thumbnail src={data.videoThumbnail} />
-        <Profile src="Profile.jpg" />
+        <Profile src={youtubeData["data"][index].channelThumbnail} />
         <Info>
           <Title>{data.videoTitle}</Title>
-          <Chanel>문명특급 - MMTG</Chanel>
+          <Chanel>{youtubeData["data"][index].channelTitle}</Chanel>
           <Views>조회수 {data.videoCount}회·</Views>
           <Date>{relativeDate()}</Date>
         </Info>

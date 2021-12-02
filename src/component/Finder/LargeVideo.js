@@ -2,7 +2,6 @@ import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import Loading from "../Main/Loading";
 import moment from "moment";
 
 const LargeVideo = ({ index }) => {
@@ -27,7 +26,7 @@ const LargeVideo = ({ index }) => {
   }, []);
 
   if (loading) {
-    return <Loading />;
+    return <Wrapper></Wrapper>;
   }
 
   if (!data) {
