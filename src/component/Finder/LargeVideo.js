@@ -1,19 +1,69 @@
 import React from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import styled from "styled-components";
+import moment from "moment";
+import ReactPlayer from "react-player";
 
-const LargeVideo = () => {
+const LargeVideo = ({ index }) => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [hover, setHover] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get(
+          `http://3.38.67.46:8080/video/get/${index}`
+        );
+        setData(response.data);
+        console.log(data);
+      } catch (e) {
+        console.log(e);
+      }
+      setLoading(false);
+    };
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <Wrapper></Wrapper>;
+  }
+
+  if (!data) {
+    return <Wrapper>데이터없다</Wrapper>;
+  }
+
+  const relativeDate = () => {
+    return moment(data.videoCreatedAt).startOf("day").fromNow(); // in an hour
+  };
+
   return (
-    <Wrapper>
-      <img className="thumb" src="thumbnail.jpg" />
+    <Wrapper
+      onMouseOver={() => setHover(true)}
+      onMouseOut={() => setHover(false)}
+    >
+      {hover ? (
+        <div className="thumb">
+          <ReactPlayer
+            url={data.videoUrl}
+            muted="true"
+            width="246px"
+            height="138px"
+            playing="true"
+            style={{ marginBottom: "10px" }}
+          />
+        </div>
+      ) : (
+        <img className="thumb" src={data.videoThumbnail} />
+      )}
       <div className="text">
-        <div className="title">'로블룩스 개발자'가 필요한 시대가 온다?!</div>
+        <div className="title">{data.videoTitle}</div>
         <div className="about">
-          노마드 코더 Nomad Coders * 조회수 2.6만회 * 2일전
+          노마드 코더 Nomad Coders * 조회수 2.6만회 * {relativeDate()}
         </div>
-        <div className="detail">
-          지난 10월 열린 로블록스 개발자 컨퍼런스 그리고 로블록스 Investor Day
-          를 보고, 느꼈던 바를 공유합니다. 로블록스는 과연 새로운 시대를 가장...
-        </div>
+        <div className="detail">{data.videoDetail}</div>
       </div>
     </Wrapper>
   );
@@ -22,6 +72,7 @@ const LargeVideo = () => {
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
+  cursor: pointer;
 
   .thumb {
     width: 246px;
