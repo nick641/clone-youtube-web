@@ -1,20 +1,48 @@
 import React from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import styled from "styled-components";
+import Loading from "../Main/Loading";
 
-const LargeVideo = ({ data }) => {
-  const { videoUrl, videoThumbnail, videoCreateAt, videoTitle, videoDetail } =
-    data;
+const LargeVideo = ({ index }) => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get(
+          `http://3.38.67.46:8080/video/get/${index}`
+        );
+        setData(response.data);
+        console.log(data);
+      } catch (e) {
+        console.log(e);
+      }
+      setLoading(false);
+    };
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
+
+  if (!data) {
+    return <Wrapper>데이터없다</Wrapper>;
+  }
 
   return (
-    <a href={videoUrl}>
+    <a href={data.videoUrl}>
       <Wrapper>
-        <img className="thumb" src={videoThumbnail} />
+        <img className="thumb" src={data.videoThumbnail} />
         <div className="text">
-          <div className="title">{videoTitle}</div>
+          <div className="title">{data.videoTitle}</div>
           <div className="about">
-            노마드 코더 Nomad Coders * 조회수 2.6만회 * {videoCreateAt}
+            노마드 코더 Nomad Coders * 조회수 2.6만회 * {data.videoCreateAt}
           </div>
-          <div className="detail">{videoDetail}</div>
+          <div className="detail">{data.videoDetail}</div>
         </div>
       </Wrapper>
     </a>
@@ -48,7 +76,6 @@ const Wrapper = styled.div`
     }
 
     .title {
-      text-decoration: none;
       color: black;
       font-size: 1.1rem;
       font-weight: 400;
@@ -58,26 +85,27 @@ const Wrapper = styled.div`
       text-overflow: ellipsis;
       -webkit-line-clamp: 2; /* 표시하고자 하는 라인 수 */
       -webkit-box-orient: vertical;
+      text-decoration: none;
     }
 
     .about {
-      text-decoration: none;
       margin-bottom: 10px;
       overflow: hidden;
       display: -webkit-box;
       text-overflow: ellipsis;
       -webkit-line-clamp: 2; /* 표시하고자 하는 라인 수 */
       -webkit-box-orient: vertical;
+      text-decoration: none;
     }
 
     .detail {
-      text-decoration: none;
       margin-bottom: 10px;
       overflow: hidden;
       display: -webkit-box;
       text-overflow: ellipsis;
       -webkit-line-clamp: 2; /* 표시하고자 하는 라인 수 */
       -webkit-box-orient: vertical;
+      text-decoration: none;
     }
   }
 `;

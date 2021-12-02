@@ -4,6 +4,7 @@ import LargeVideo from "../component/Finder/LargeVideo";
 import Loading from "../component/Main/Loading";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Video from "../component/Main/Video";
 
 const Finder = () => {
   const [videos, setVideos] = useState(null);
@@ -25,36 +26,7 @@ const Finder = () => {
   }, []);
 
   if (loading) {
-    return (
-      <Wrapper>
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-        <Loading />
-      </Wrapper>
-    );
+    return <Wrapper />;
   }
 
   if (!videos) {
@@ -71,10 +43,9 @@ const Finder = () => {
         <Card src="card/sport.png" />
         <Card src="card/learn.png" />
       </Cards>
-
-      {videos.map((index) => {
-        <LargeVideo index={index} />;
-      })}
+      {videos.map((i) => (
+        <LargeVideo index={i.videoIdx} />
+      ))}
     </Wrapper>
   );
 };
