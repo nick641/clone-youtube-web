@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Loading from "./Loading";
 import moment from "moment";
 import youtubeData from "../youtubeData.json";
+import ReactPlayer from "react-player";
 
 const Video = ({ index }) => {
   const [data, setData] = useState(null);
@@ -40,18 +41,24 @@ const Video = ({ index }) => {
   };
 
   return (
-    <a href={data.videoUrl}>
-      <VideoItem>
-        <Thumbnail src={data.videoThumbnail} />
-        <Profile src={youtubeData["data"][index].channelThumbnail} />
-        <Info>
-          <Title>{data.videoTitle}</Title>
-          <Chanel>{youtubeData["data"][index].channelTitle}</Chanel>
-          <Views>조회수 {data.videoCount}회·</Views>
-          <Date>{relativeDate()}</Date>
-        </Info>
-      </VideoItem>
-    </a>
+    <VideoItem>
+      <Thumbnail>
+        <ReactPlayer
+          url={data.videoUrl}
+          muted="true"
+          width="100%"
+          height="100%"
+          playing="true"
+        />
+      </Thumbnail>
+      <Profile src={youtubeData["data"][index].channelThumbnail} />
+      <Info>
+        <Title>{data.videoTitle}</Title>
+        <Chanel>{data.videoChannel}</Chanel>
+        <Views>조회수 {data.videoCount}회·</Views>
+        <Date>{relativeDate()}</Date>
+      </Info>
+    </VideoItem>
   );
 };
 
@@ -62,10 +69,9 @@ const VideoItem = styled.div`
   display: inline-block;
   padding: 8px;
   text-align: left;
-  cursor: pointer;
 `;
 
-const Thumbnail = styled.img`
+const Thumbnail = styled.div`
   width: 100%;
   margin-bottom: 10px;
 `;

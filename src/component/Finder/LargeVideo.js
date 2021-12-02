@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import moment from "moment";
+import HoverVideoPlayer from "react-hover-video-player";
 
 const LargeVideo = ({ index }) => {
   const [data, setData] = useState(null);
@@ -40,6 +41,7 @@ const LargeVideo = ({ index }) => {
   return (
     <a href={data.videoUrl}>
       <Wrapper>
+        <HoverVideoPlayer />
         <img className="thumb" src={data.videoThumbnail} />
         <div className="text">
           <div className="title">{data.videoTitle}</div>
