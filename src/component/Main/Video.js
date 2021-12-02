@@ -1,19 +1,46 @@
 import React from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Loading from "./Loading";
 import styled from "styled-components";
 
-const Video = ({ data }) => {
-  const { videoUrl, videoThumbnail, videoCreateAt, videoTitle } = data;
+const Video = () => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get("http://3.38.67.46:8080/video/get/1");
+        console.log(response);
+        setData(response.data);
+      } catch (e) {
+        console.log(e);
+      }
+      setLoading(false);
+    };
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
+
+  if (!data) {
+    return <div>데이터없음!</div>;
+  }
 
   return (
-    <a href={videoUrl}>
+    <a href={data.videoUrl}>
       <VideoItem>
-        <Thumbnail src={videoThumbnail} />
+        <Thumbnail src={data.videoThumbnail} />
         <Profile src="Profile.jpg" />
         <Info>
-          <Title>{videoTitle}</Title>
+          <Title>{data.videoTitle}</Title>
           <Chanel>문명특급 - MMTG</Chanel>
           <Views>조회수 250만회·</Views>
-          <Date>{videoCreateAt}</Date>
+          <Date>{data.videoCreateAt}</Date>
         </Info>
       </VideoItem>
     </a>

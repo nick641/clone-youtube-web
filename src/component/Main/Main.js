@@ -60,22 +60,7 @@ const MainContent = () => {
 
       <Videos>
         <Ad></Ad>
-        <Video data={sampleData}></Video>
-        <Video data={sampleData}></Video>
-        <Video data={sampleData}></Video>
-        <Video data={sampleData}></Video>
-        <Video data={sampleData}></Video>
-        <Video data={sampleData}></Video>
-        <Video data={sampleData}></Video>
-        <Video data={sampleData}></Video>
-        <Video data={sampleData}></Video>
-        <Video data={sampleData}></Video>
-        <Video data={sampleData}></Video>
-        <Video data={sampleData}></Video>
-        <Video data={sampleData}></Video>
-        <Video data={sampleData}></Video>
-        <Video data={sampleData}></Video>
-        <Video data={sampleData}></Video>
+        <Video />
       </Videos>
     </Wrapper>
   );
