@@ -1,38 +1,26 @@
 import React from "react";
 import styled from "styled-components";
-import Layout from "../shared/Layout";
 import Filter from "../component/Main/Filter";
-import { useState } from "react";
 import VideoList from "../component/Main/VideoList";
 
-const FilterTag = [
-  "Total",
-  "music",
-  "movie",
-  "cooking",
-  "mix",
-  "makeup",
-  "mathematics",
-  "rap",
-  "trend",
-  "pokemon",
-  "cooking",
-  "fashion",
-  "interior",
-];
-
 const Main = () => {
-  const [clicked, setClicked] = useState("전체");
-
-  const filterMap = (name) => {
-    return (
-      <Filter name={name} filterFunc={() => setClicked("{name}")}></Filter>
-    );
-  };
-
   return (
     <Wrapper>
-      <Filters>{FilterTag.map(filterMap)}</Filters>
+      <Filters>
+        <Filter name="Total" />
+        <Filter name="music" />
+        <Filter name="movie" />
+        <Filter name="cooking" />
+        <Filter name="mix" />
+        <Filter name="makeup" />
+        <Filter name="mathematics" />
+        <Filter name="rap" />
+        <Filter name="trend" />
+        <Filter name="pokemon" />
+        <Filter name="cooking" />
+        <Filter name="fashion" />
+        <Filter name="interior" />
+      </Filters>
       <VideoList />
     </Wrapper>
   );

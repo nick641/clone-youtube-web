@@ -23,7 +23,7 @@ const VideoList = () => {
       setLoading(false);
     };
     fetchData();
-  }, []);
+  }, [videos]);
 
   if (loading) {
     return (

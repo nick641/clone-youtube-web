@@ -28,7 +28,7 @@ const Finder = () => {
       setLoading(false);
     };
     fetchData();
-  }, []);
+  }, [videos]);
 
   if (loading) {
     return <Wrapper />;

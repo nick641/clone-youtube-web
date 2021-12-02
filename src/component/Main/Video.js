@@ -27,7 +27,7 @@ const Video = ({ index }) => {
       setLoading(false);
     };
     fetchData();
-  }, []);
+  }, [data, index]);
 
   if (loading) {
     return <Loading />;

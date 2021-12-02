@@ -25,7 +25,7 @@ const LargeVideo = ({ index }) => {
       setLoading(false);
     };
     fetchData();
-  }, []);
+  }, [index, data]);
 
   if (loading) {
     return <Wrapper></Wrapper>;
@@ -56,7 +56,7 @@ const LargeVideo = ({ index }) => {
           />
         </div>
       ) : (
-        <img className="thumb" src={data.videoThumbnail} />
+        <img className="thumb" src={data.videoThumbnail} alt="thumb" />
       )}
       <div className="text">
         <div className="title">{data.videoTitle}</div>

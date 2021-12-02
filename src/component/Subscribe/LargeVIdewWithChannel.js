@@ -25,7 +25,7 @@ const LargeVideoWithChannel = ({ index }) => {
       setLoading(false);
     };
     fetchData();
-  }, []);
+  }, [data, index]);
 
   if (loading) {
     return <Loading />;
@@ -41,6 +41,7 @@ const LargeVideoWithChannel = ({ index }) => {
         <img
           className="channel-icon"
           src={youtubeData["data"][index].channelThumbnail}
+          alt="channel-icon"
         />
         <div className="channel-name">
           {youtubeData["data"][index].channelTitle}

@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-const Filter = ({ filterFunc, name }) => {
-  return <Button onClick={filterFunc}>{name}</Button>;
+const Filter = ({ name }) => {
+  return <Button>{name}</Button>;
 };
 
 const Button = styled.button`
