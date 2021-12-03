@@ -59,7 +59,7 @@ const Video = ({ index }) => {
         <Thumbnail src={data.videoThumbnail} />
       )}
 
-      <Profile src={youtubeData["data"][index].channelThumbnail} />
+      <Profile src={youtubeData["data"][index + 28].channelThumbnail} />
       <Info>
         <Title>{data.videoTitle}</Title>
         <Chanel>{data.videoChannel}</Chanel>

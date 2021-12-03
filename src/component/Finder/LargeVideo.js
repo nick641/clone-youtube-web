@@ -65,7 +65,7 @@ const LargeVideo = ({ index }) => {
       <div className="text">
         <div className="title">{data.videoTitle}</div>
         <div className="about">
-          노마드 코더 Nomad Coders * 조회수 2.6만회 * {relativeDate()}
+          {data.videoChannel} * 조회수 {data.videoCount}회 * {relativeDate()}
         </div>
         <div className="detail">{data.videoDetail}</div>
       </div>

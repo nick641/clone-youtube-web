@@ -40,11 +40,9 @@ const LargeVideoWithChannel = ({ index }) => {
       <Channel>
         <img
           className="channel-icon"
-          src={youtubeData["data"][index].channelThumbnail}
+          src={youtubeData["data"][index + 28].channelThumbnail}
         />
-        <div className="channel-name">
-          {youtubeData["data"][index].channelTitle}
-        </div>
+        <div className="channel-name">{data.videoChannel}</div>
       </Channel>
       <LargeVideo index={index} />
     </Wrapper>
