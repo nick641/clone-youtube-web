@@ -19,7 +19,9 @@ const Finder = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await axios.get("http://3.38.67.46:8080/video/list");
+        const response = await axios.get(
+          "http://3.38.67.46:8080/user/1/video/list/recommend"
+        );
         setVideos(response.data);
         console.log(videos);
       } catch (e) {
